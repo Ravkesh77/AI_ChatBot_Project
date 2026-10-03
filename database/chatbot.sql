@@ -1,0 +1,39 @@
+CREATE DATABASE IF NOT EXISTS chatbot;
+
+USE chatbot;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS intents (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    intent_name VARCHAR(50) NOT NULL UNIQUE,
+    description VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS responses (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    intent_id INT NOT NULL,
+    response_text TEXT NOT NULL,
+
+    FOREIGN KEY (intent_id)
+        REFERENCES intents(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS chat_history (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    user_message TEXT NOT NULL,
+    bot_response TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (user_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+);

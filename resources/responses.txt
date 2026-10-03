@@ -1,0 +1,8 @@
+GREETING=Hello! How can I help you?
+NAME=My name is JavaBot.
+HOW_ARE_YOU=I am fine! Thanks for asking.
+JAVA=Java is a popular object-oriented programming language.
+OOP=OOP stands for Object-Oriented Programming.
+HELP=Sure! Tell me what you need help with.
+GOODBYE=Goodbye! Have a nice day.
+UNKNOWN=Sorry, I don't understand that yet.

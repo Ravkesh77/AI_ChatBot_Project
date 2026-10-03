@@ -1,0 +1,19 @@
+# Compiled Java files
+*.class
+
+# Build directory
+target/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Operating system files
+.DS_Store
+
+# Logs
+*.log
+
+# Environment files
+.env
